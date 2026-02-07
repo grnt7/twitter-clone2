@@ -15,12 +15,12 @@ interface Props {
   setTweets: React.Dispatch<SetStateAction<Tweet[]>>;
 }
 
-function TweetBox({ setTweets }: Props) {
-  const [input, setInput] = useState("");
-  const [image, setImage] = useState("");
-  const { data: session } = useSession();
-  const [imageUrlBoxIsOpen, setimageUrlBox] = useState(false);
-  const imageInputRef = useRef<HTMLInputElement>(null);
+function TweetBox({ setTweets }: Props) { // props for the TweetBox component
+  const [input, setInput] = useState(""); // hook state for the input field
+  const [image, setImage] = useState(""); // hook state for the image field
+  const { data: session } = useSession(); // hook session for the user session
+  const [imageUrlBoxIsOpen, setimageUrlBox] = useState(false); // hook state for the image url box
+  const imageInputRef = useRef<HTMLInputElement>(null); // ref for the image input field
 
   const addImageToTweet = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -82,7 +82,7 @@ function TweetBox({ setTweets }: Props) {
               type="text"
               placeholder="What's Happening?"
               value={input}
-              onChange={(e) => setInput(e.target.value)}
+              onChange={(e) => setInput(e.target.value)}// onChange event for the input field
             />
             <div className="flex items-center">
               <div className="flex flex-1 space-x-2 text-twitter">
@@ -98,7 +98,7 @@ function TweetBox({ setTweets }: Props) {
               <button
                 onClick={handleSumbit}
                 disabled={!input}
-                className="bg-twitter px-5 py-2 font-bold text-white rounded-full disabled:opacity-40"
+                className="bg-twitter px-5 py-2 font-bold text-white rounded-full disabled:opacity-40"// disabled:opacity-40 is a class that makes the button disabled when the input is empty
               >
                 Tweet
               </button>

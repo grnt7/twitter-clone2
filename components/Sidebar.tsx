@@ -16,7 +16,7 @@ function Sidebar() {
   const { data: session } = useSession();
   return (
     // Tell it to take up two columns, items in the center for mobile view and otherwise at start
-    <div className="flex flex-col col-span-2 items-center px-4 md:items-start">
+    <div className="col-span-2 flex flex-col items-center px-4 md:items-start">
       <img
         className="m-3 h-10 w-10"
         src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png"

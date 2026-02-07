@@ -5,8 +5,11 @@ import Feed from "../components/Feed";
 import Sidebar from "../components/Sidebar";
 import Widgets from "../components/Widgets";
 import { Tweet } from "../typings";
-import { fetchTweets } from "../utils/fetchTweets";
+import { sanityClient } from "../sanity";
+import { groq } from "next-sanity";
 import { Toaster } from "react-hot-toast";
+
+const feedQuery = groq`*[_type == "tweet"]`;
 
 interface Props {
   tweets: Tweet[];
@@ -34,8 +37,8 @@ const Home: NextPage<Props> = ({ tweets }) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const tweets = await fetchTweets();
+export const getServerSideProps: GetServerSideProps = async () => {
+  const tweets: Tweet[] = await sanityClient.fetch(feedQuery);
   return {
     props: {
       tweets,

@@ -3,7 +3,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "sanity dev": "sanity dev",
+    "sanity start": "sanity dev",
+    "sanity build": "sanity build",
+    "sanity deploy": "sanity deploy",
+    "sanity graphql": "sanity graphql"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
